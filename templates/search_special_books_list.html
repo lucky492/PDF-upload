@@ -1,0 +1,62 @@
+{% extends 'base_store_dropdown.html' %}
+
+
+{% block body %}
+<div class="tm-container">
+  <div class="tm-row">
+    <!-- Site Header -->
+    <div class="tm-left">
+      <div class="tm-left-inner">
+        <div class="tm-site-header">
+          <i class="fas fa-coffee fa-3x tm-site-logo"></i>
+          <h1 class="tm-site-name">Free Books PDF</h1>
+        </div>
+        <nav class="tm-site-nav">
+          <ul class="tm-site-nav-ul">
+            <li class="tm-page-nav-item">
+              <a href="#special" class="tm-page-link active">
+                <i class="fas fa-glass-martini tm-page-link-icon"></i>
+                <span>Special Books</span>
+              </a>
+            </li>
+            <li class="tm-page-nav-item">
+              <a href="#contact" class="tm-page-link">
+                <i class="fas fa-comments tm-page-link-icon"></i>
+                <span>Contact</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+
+
+    <!-- Special Items Page -->
+    <div id="special" class="tm-page-content">
+      <div class="tm-special-items">
+
+        <br>
+        <form class="d-flex" action="/bookspdf/specialbooks/search" method="post">
+          <input class="form-control me-2" name="search2" type="text" placeholder="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        {% for special_book in special_book %}
+        <div class="tm-black-bg tm-special-item">
+          <img src="/static/upload_data/{{special_book.special_books_image}}" alt="Image"
+            style="height: 50vh;width: 31vw;">
+          <div class="tm-special-item-description">
+            <h2 class="tm-text-primary tm-special-item-title">{{special_book.special_books_name}}</h2>
+            <p class="tm-special-item-text">{{special_book.special_books_content}}</p>
+            <td><a href="/download2/{{special_book.special_books_name}}" type="submit"
+                class="tm-btn-primary tm-align-right" style="text-align: center;">Download</a></td>
+          </div>
+        </div>
+        {% endfor %}
+
+
+      </div>
+    </div>
+    <!-- end Special Items Page -->
+    {% endblock body %}

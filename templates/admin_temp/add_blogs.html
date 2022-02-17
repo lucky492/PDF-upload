@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add blogs</title>
+
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='assets/favicon.ico') }}" />
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{{ url_for('static',filename='css/styles.css') }}" rel="stylesheet" />
+
+
+    <style>
+        form {
+            margin: 25px;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/admin/add_blog" method="POST" enctype="multipart/form-data">
+        <div class="upload" style="max-width: 69vw; overflow: auto;">
+            <u>
+                <h1>upload your file for blog</h1>
+            </u>
+            <input type="file" name="file1">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Title of blog</label>
+            <input type="text" class="form-control" name="title" id="exampleFormControlInput1"
+                placeholder="title of blog">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Subtitle of blog</label>
+            <input type="text" class="form-control" name="subtitle" id="exampleFormControlInput1"
+                placeholder="title of blog">
+        </div>
+        
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">content</label>
+            <textarea class="form-control" name="desc" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">submit</button>
+    </form>
+</body>
+
+</html>

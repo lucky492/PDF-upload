@@ -1,0 +1,105 @@
+{% extends 'admin_temp/admin_base.html' %}
+{% block title %} Admin's blog place {% endblock title %}
+
+{% block body %}
+<header class="masthead" style="background-image: url('static/assets/img/home-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Manage your Blogs here </h1>
+                    <span class="subheading">A place to find free books and testpapers</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<u>
+    <h1>
+        <div style="text-align: center;">welcome you are logged in</div>
+    </h1>
+</u><br><br>
+
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+
+            <!-- logout -->
+            <a href="/logout"> <button type="submit" class="btn btn-primary">Log out</button> </a>
+            <br><br>
+
+
+            <!-- add blog -->
+            <a href="admin/add_blog"> <button type="submit" class="btn btn-primary text-uppercase">add new blog</button>
+            </a>
+            <br><br>
+
+
+            <!-- show posts -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">sno</th>
+                        <th scope="col">name</th>
+                        <th scope="col">content</th>
+                        <th scope="col">Action</th>
+
+                    </tr>
+                </thead>
+
+                {% for blogs in blogs %}
+                <tbody>
+                    <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{blogs.title}}</td>
+                        <td>{{blogs.content}}</td>
+                        <td><a class="btn btn-primary text-uppercase" href="/deleteblog/{{blogs.title}}">delete</a></td>
+                        <td><a class="btn btn-primary text-uppercase" href="#">update</a></td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Footer-->
+<footer class="border-top">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <ul class="list-inline text-center">
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2021</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% endblock body %}

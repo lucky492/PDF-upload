@@ -1,0 +1,20 @@
+
+{
+    "parameter":{
+        "local_server": "True",
+        "local_uri": "mysql://root:@localhost/lib",
+        "prod_uri": "mysql://root:@localhost/lib",
+
+        "github_uri" : "pass",
+
+        "blogname_uri": "Free Books PDF",
+
+
+        "admin_user":"1",
+        "password":"1",
+        
+        "upload_location":"static\\upload_data",
+        "no_of_blogs":2
+    }
+
+}

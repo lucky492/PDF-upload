@@ -1,0 +1,137 @@
+{% extends 'admin_temp/base_books_list.html' %}
+
+{% block body %} 
+
+<!-- special books -->
+<u>
+    <h1>special books</h1>
+</u>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">sno</th>
+            <th scope="col">name</th>
+            <th scope="col">content</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+
+    {% for special_book in special_book %}
+    <tbody>
+        <tr>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{special_book.special_books_name}}</td>
+            <td>{{special_book.special_books_content}}</td>
+            <td><a href="/update/{{special_book.special_books_name}}" type="submit"
+                    class="btn btn-outline-success">update</a></td>
+            <td><a href="/delete/{{special_book.special_books_name}}" type="submit"
+                    class="btn btn-outline-success">delete</a></td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+
+
+
+<!-- school books -->
+<u>
+    <h1>school books</h1>
+</u>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">sno</th>
+            <th scope="col">name</th>
+            <th scope="col">content</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+
+    {% for school_book in school_book %}
+    <tbody>
+        <tr>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{school_book.school_books_name}}</td>
+            <td>{{school_book.school_books_content}}</td>
+            <td><a href="/update/{{school_book.school_books_name}}" type="submit"
+                    class="btn btn-outline-success">update</a></td>
+            <td><a href="/delete2/{{school_book.school_books_name}}" type="submit"
+                    class="btn btn-outline-success">delete</a></td>
+
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+
+
+
+<!-- finance books -->
+<u>
+    <h1>finance books</h1>
+</u>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">sno</th>
+            <th scope="col">name</th>
+            <th scope="col">content</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+
+    {% for finance_book in finance_book %}
+    <tbody>
+        <tr>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{finance_book.finance_books_name}}</td>
+            <td>{{finance_book.finance_books_content}}</td>
+            <td><a href="/update/{{finance_book.finance_books_name}}" type="submit"
+                    class="btn btn-outline-success">update</a></td>
+            <td><a href="/delete3/{{finance_book.finance_books_name}}" type="submit"
+                    class="btn btn-outline-success">delete</a></td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+
+<!-- uncategorised books -->
+<u>
+    <h1>uncategorised books</h1>
+</u>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">sno</th>
+            <th scope="col">name</th>
+            <th scope="col">content</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+
+    {% for uncate in uncate %}
+    <tbody>
+        <tr>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{uncate.uncategorised_books_name}}</td>
+            <td>{{uncate.uncategorised_books_content}}</td>
+            <td><a href="/update/{{uncate.uncategorised_books_name}}" type="submit"
+                    class="btn btn-outline-success">update</a></td>
+            <td><a href="/delete4/{{uncate.uncategorised_books_name}}" type="submit"
+                    class="btn btn-outline-success">delete</a></td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+{% endblock body %}
+
+
+</body>
+
+</html>

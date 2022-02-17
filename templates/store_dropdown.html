@@ -1,0 +1,208 @@
+{% extends 'base_store_dropdown.html' %}
+{% block body %}
+<div class="tm-container">
+  <div class="tm-row">
+    <!-- Site Header -->
+    <div class="tm-left">
+      <div class="tm-left-inner">
+        <div class="tm-site-header">
+          <i class="fas fa-coffee fa-3x tm-site-logo"></i>
+          <h1 class="tm-site-name">Free Books PDF</h1>
+        </div>
+        <nav class="tm-site-nav">
+          <ul class="tm-site-nav-ul">
+            <li class="tm-page-nav-item">
+              <a href="#drink" class="tm-page-link active">
+                <i class="fas fa-mug-hot tm-page-link-icon"></i>
+                <span>Books</span>
+              </a>
+            </li>
+            <li class="tm-page-nav-item">
+              <a href="#special" class="tm-page-link">
+                <i class="fas fa-glass-martini tm-page-link-icon"></i>
+                <span>Special Books</span>
+              </a>
+            </li>
+            <li class="tm-page-nav-item">
+              <a href="#contact" class="tm-page-link">
+                <i class="fas fa-comments tm-page-link-icon"></i>
+                <span>Contact</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="tm-right">
+      <main class="tm-main">
+        <div id="drink" class="tm-page-content">
+          <!-- Drink Menu Page -->
+          <nav class="tm-black-bg tm-drinks-nav">
+            <ul>
+              <li>
+                <a href="#" class="tm-tab-link active" data-id="cold">School Books</a>
+              </li>
+              <li>
+                <a href="#" class="tm-tab-link" data-id="hot">Finance Books</a>
+              </li>
+              <li>
+                <a href="#" class="tm-tab-link" data-id="juice">Uncategorised</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- school book -->
+          <div id="cold" class="tm-tab-content">
+            <div class="tm-list">
+
+              <br>
+              <form class="d-flex" action="/bookspdf/schoolbooks/search" method="post">
+                <input class="form-control me-2" name="search2" type="text" placeholder="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+              
+              {% for school_book in school_book %}
+              <div class="tm-list-item">
+                <img src="/static/upload_data/{{school_book.school_books_image}}" alt="Image" class="tm-list-item-img">
+                <div class="tm-black-bg tm-list-item-text">
+                  <h3 class="tm-list-item-name">{{school_book.school_books_name}}<span
+                      class="tm-list-item-price">Free</span></h3>
+                  <p class="tm-list-item-description">{{school_book.school_books_content}}</p>
+                  <td><a href="/download/{{school_book.school_books_data}}" type="submit"
+                      class="tm-btn-primary tm-align-right" style="text-align: center;">Download</a></td>
+
+                </div>
+              </div>
+              {% endfor %}
+
+            </div>
+          </div>
+
+          <!-- finance books -->
+
+          <div id="hot" class="tm-tab-content">
+            <div class="tm-list">
+
+              <br>
+              <form class="d-flex" action="/bookspdf/financebooks/search" method="post">
+                <input class="form-control me-2" name="search2" type="text" placeholder="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+              
+              {% for finance_book in finance_book %}
+              <div class="tm-list-item">
+                <img src="/static/upload_data/{{finance_book.finance_books_image}}" alt="Image"
+                  class="tm-list-item-img">
+                <div class="tm-black-bg tm-list-item-text">
+                  <h3 class="tm-list-item-name">{{finance_book.finance_books_name}}<span
+                      class="tm-list-item-price">Free</span>
+                  </h3>
+                  <p class="tm-list-item-description">{{finance_book.finance_books_content}}</p>
+                  <td><a href="/download3/{{finance_book.finance_books_data}}" type="submit"
+                      class="tm-btn-primary tm-align-right" style="text-align: center;">Download</a></td>
+                </div>
+              </div>
+              {% endfor %}
+
+            </div>
+          </div>
+
+
+          <!-- uncategorised -->
+
+          <div id="juice" class="tm-tab-content">
+            <div class="tm-list">
+
+              <br>
+              <form class="d-flex" action="/bookspdf/uncategorisedbooks/search" method="post">
+                <input class="form-control me-2" name="search2" type="text" placeholder="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+
+              {% for uncate in uncate %}
+              <div class="tm-list-item">
+                <img src="/static/upload_data/{{uncate.uncategorised_books_image}}" alt="Image"
+                  class="tm-list-item-img">
+                <div class="tm-black-bg tm-list-item-text">
+                  <h3 class="tm-list-item-name">{{uncate.uncategorised_books_name}}<span
+                      class="tm-list-item-price">Free</span>
+                  </h3>
+                  <p class="tm-list-item-description">{{uncate.uncategorised_books_content}}
+                  </p>
+                  <td><a href="/download4/{{uncate.uncategorised_books_data}}" type="submit"
+                      class="tm-btn-primary tm-align-right" style="text-align: center;">Download</a></td>
+                </div>
+              </div>
+              {% endfor %}
+
+            </div>
+          </div>
+          <!-- end Drink Menu Page -->
+        </div>
+
+
+
+
+
+        <!-- Special Items Page -->
+
+        <div id="special" class="tm-page-content">
+          <div class="tm-special-items">
+
+            <br>
+            <form class="d-flex" action="/bookspdf/specialbooks/search" method="post">
+              <input class="form-control me-2" name="search2" type="text" placeholder="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+
+            {% for special_book in special_book %}
+            <div class="tm-black-bg tm-special-item">
+              <img src="/static/upload_data/{{special_book.special_books_image}}" alt="Image"
+                style="height: 50vh;width: 31vw;">
+              <div class="tm-special-item-description">
+                <h2 class="tm-text-primary tm-special-item-title">
+                  {{special_book.special_books_name}}</h2>
+                <p class="tm-special-item-text">{{special_book.special_books_content}}</p>
+                <td><a href="/download2/{{special_book.special_books_data}}" type="submit"
+                    class="tm-btn-primary tm-align-right" style="text-align: center;">Download</a></td>
+              </div>
+            </div>
+            {% endfor %}
+
+
+          </div>
+        </div>
+        <!-- end Special Items Page -->
+
+
+        <!-- Contact Page -->
+        <div id="contact" class="tm-page-content">
+          <div class="tm-black-bg tm-contact-text-container">
+            <h2 class="tm-text-primary">Message Us</h2>
+            <p>Please say what you need more.</p>
+          </div>
+
+
+          <div class="tm-black-bg tm-contact-form-container tm-align-right">
+            <form action="" method="POST" id="contact-form">
+              <div class="tm-form-group">
+                <input type="text" name="name" class="tm-form-control" placeholder="Name" required="" />
+              </div>
+              <div class="tm-form-group">
+                <input type="email" name="email" class="tm-form-control" placeholder="Email" required="" />
+              </div>
+              <div class="tm-form-group tm-mb-30">
+                <textarea rows="6" name="message" class="tm-form-control" placeholder="Message" required=""></textarea>
+              </div>
+              <div>
+                <td><a href="#" type="submit" class="tm-btn-primary tm-align-right"
+                    style="text-align: center;">Post</a></td>
+              </div>
+            </form>
+          </div>
+        </div>
+
+
+
+        {% endblock body %}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>comments</title>
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='assets/favicon.ico') }}" />
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{{ url_for('static',filename='css/styles.css') }}" rel="stylesheet" />
+    <style>
+        *{
+            margin: 5px;
+            padding: 3px;
+        }
+    </style>
+
+    
+</head>
+<body>
+    <u><h1>comments</h1></u>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">sno</th>
+                <th scope="col">name</th>
+                <th scope="col">content</th>
+                <th scope="col">Action</th>
+
+            </tr>
+        </thead>
+
+        {% for msg in msg %}
+        <tbody>
+            <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{msg.name}}</td>
+                <td>{{msg.message}}</td>
+                <td><a href="/update_msg/{{msg.name}}"  type="submit" class="btn btn-outline-success">update</a></td>
+                <td><a href="/delete_msg/{{msg.message}}"  type="submit" class="btn btn-outline-success">delete</a></td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

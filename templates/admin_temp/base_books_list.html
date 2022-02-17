@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books list</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='assets/favicon.ico') }}" />
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{{ url_for('static',filename='css/styles.css') }}" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 5px;
+            padding: 2px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <form class="d-flex" action="/admin/books_list/search" method="post">
+        <input class="form-control me-2" name="search" type="text" placeholder="Search" >
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+
+    {% block body %}
+
+
+    {% endblock body %}
+
+</body>
+
+</html>
