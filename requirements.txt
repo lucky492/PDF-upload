@@ -21,7 +21,6 @@ idna==2.10
 itsdangerous==2.0.1
 Jinja2==3.0.3
 MarkupSafe==2.0.1
-mysqlclient @ file:///C:/Users/user/pdfupload/mysqlclient-1.4.6-cp38-cp38-win32.whl
 newsapi-python==0.2.6
 numpy==1.20.3
 opencv-python==4.5.5.62
